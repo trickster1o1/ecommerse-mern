@@ -23,5 +23,5 @@ if(process.env.NODE_ENV === 'production') {
 
 app.listen(port, ()=> {
     connectDB();
-    console.log(`Server Running: (${port})...`);
+    console.log(`Server Running: (${port})`);
 });
