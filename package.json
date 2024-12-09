@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon server/server.js",
-    "build": "npm install && npm install --prefix website && npm run build --prefix website",
+    "build": "npm install && npm install --prefix steam-app && npm run build --prefix steam-app",
     "start": "node server/server.js"
   },
   "type": "module",

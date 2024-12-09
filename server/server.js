@@ -14,10 +14,10 @@ app.use(express.json());
 app.use("/api/products", productRoutes);
 
 if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname, "/website/build")));
+    app.use(express.static(path.join(__dirname, "/stream-app/out")));
 
     app.get("*", (req,res) => {
-        res.sendFile(path.resolve(__dirname, "website", "build", "index.html"));
+        res.sendFile(path.resolve(__dirname, "stream-app", "out", "index.html"));
     })
 }
 
