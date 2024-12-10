@@ -1,3 +1,7 @@
+import MovieBlock from "@/src/components/Mblock";
+
 export default function Movies() {
-    return <h1>Movies</h1>
+    return (
+        <MovieBlock />
+    )
 }

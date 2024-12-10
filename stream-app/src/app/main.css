@@ -1,0 +1,70 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}a {
+    text-decoration: none;
+    color: black;
+} .nav-cont {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: inset -1px 30px 20px rgba(0,0,0,.35);
+
+    align-items: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    z-index: 999;
+} .i-fit {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+} .i-banner {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+} .i-banner .i-fit {
+    position: absolute;
+} .overlay {
+    position: absolute;
+    top: 0;left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,.25);
+} .overlay {
+    color: #fff;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2em;
+    padding-bottom: 225px;
+} .overlay p {
+    font-size: 24px;
+    width: 30em;
+    margin-top: .5em;
+    margin-bottom: 1em;
+    text-shadow: 0 1px 2px #000;
+    font-weight: 300;
+} .overlay section {
+    display: flex;
+    gap: 1em;
+    padding-top: .5em;
+} .overlay section span {
+    background-color: #000;
+    border-radius: 10px;
+    padding: 5px 10px;
+    font-size: 12px;
+} .custom-btn {
+    background-color: #ce0d0d;
+    color: white;
+    border-radius: 10px;
+    padding: 1em 5em;
+    font-weight: bolder;
+    font-size: 12px;
+}

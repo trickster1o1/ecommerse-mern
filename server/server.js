@@ -1,8 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import { connectDB } from './config/db.js';
-import productRoutes from './routes/product.route.js';
+import movieRoutes from './routes/movie.route.js';
 import path from 'path';
+import cors from 'cors';
 
 dotenv.config();
 const app = express();
@@ -10,8 +11,8 @@ const port = process.env.PORT;
 const __dirname = path.resolve();
 
 app.use(express.json());
-
-app.use("/api/products", productRoutes);
+app.use(cors());
+app.use("/api/movies", movieRoutes);
 
 if(process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, "/stream-app/out")));
