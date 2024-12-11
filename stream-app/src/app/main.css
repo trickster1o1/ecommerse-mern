@@ -19,6 +19,10 @@
     top: 0;
     width: 100vw;
     z-index: 999;
+} .nav-cont a {
+    color: #fff;
+} .nav-cont span {
+    margin-right: 1em;
 } .i-fit {
     width: 100%;
     height: 100%;
@@ -67,4 +71,13 @@
     padding: 1em 5em;
     font-weight: bolder;
     font-size: 12px;
+} .loading-cont {
+    background-color: #000;
+    height: 100vh;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 25px;
 }

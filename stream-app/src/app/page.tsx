@@ -6,6 +6,7 @@ import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Suspense, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoMdPlayCircle } from "react-icons/io";
+import Loading from "@/src/components/Loading";
 
 export default function Home() {
   var $ = require("jquery");
@@ -17,7 +18,8 @@ export default function Home() {
     ssr: false,
   });
 
-  const [banners, setBanners] = useState([]);
+  const [banners, setBanners] = useState<any[]>([]);
+  
   const getMovies = async () => {
     await fetch(`http://localhost:3001/api/movies/banners`)
       .then((res) => res.json())
@@ -36,7 +38,7 @@ export default function Home() {
 
   return (
     <div>
-      <Suspense fallback={"Loading..."}>
+      <Suspense fallback={<Loading />}>
         <OwlCarousel className="owl-theme" items={1} dots={false} autoPlay>
             {banners.map((b,index)=>
                 <div className="i-banner" key={index}>
@@ -55,7 +57,7 @@ export default function Home() {
                     <p>
                       {b.description}
                     </p>
-                    <Link href={"/"} className="custom-btn">
+                    <Link href={"/movies/"+b.slug} className="custom-btn">
                       <IoMdPlayCircle /> Watch Now{" "}
                     </Link>
                   </div>
@@ -67,54 +69,9 @@ export default function Home() {
                 />
               </div>
             )}
-          {/* <div className="i-banner">
-            <div className="overlay">
-              <div>
-                <h1>Mary</h1>
-                <section>
-                  <span>Movie</span>
-                  <span>2024</span>
-                  <span>110min</span>
-                  <span>
-                    <FaStar />
-                    4.7
-                  </span>
-                </section>
-                <p>
-                  In this timeless coming-of-age story, Mary is shunned
-                  following an otherworldly conception, and forced to flee when
-                  Herods insatiable thirst for power ignites a murderous pursuit
-                  for the newborn.
-                </p>
-                <Link href={"/"} className="custom-btn">
-                  <IoMdPlayCircle /> Watch Now{" "}
-                </Link>
-              </div>
-            </div>
-            <img
-              src="https://image.tmdb.org/t/p/original/sQKPoTdrq7bjeP7plWnbrEuskHr.jpg"
-              alt="IMG1"
-              className="i-fit"
-            />
-          </div>
-          <div className="i-banner">
-            <div className="overlay"></div>
-            <img
-              src="https://image.tmdb.org/t/p/original/sa9vB0xb3OMU6iSMkig8RBbdESq.jpg"
-              alt="IMG2"
-              className="i-fit"
-            />
-          </div>
-          <div className="i-banner">
-            <div className="overlay"></div>
-            <img
-              src="https://image.tmdb.org/t/p/original/wHXyGLjYPm4bHNKFQPCfYWiTeSH.jpg"
-              alt="IMG3"
-              className="i-fit"
-            />
-          </div> */}
         </OwlCarousel>
       </Suspense>
+      {/* <Loading /> */}
     </div>
   );
 }
