@@ -7,6 +7,7 @@ import { Suspense, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa";
 import { IoMdPlayCircle } from "react-icons/io";
 import Loading from "@/src/components/Loading";
+import { getBanners, getMovies } from "@/src/fetch/movies";
 
 export default function Home() {
   var $ = require("jquery");
@@ -19,21 +20,11 @@ export default function Home() {
   });
 
   const [banners, setBanners] = useState<any[]>([]);
+  const [movies, setMovies] = useState<any[]>([]);
   
-  const getMovies = async () => {
-    await fetch(`http://localhost:3001/api/movies/banners`)
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          setBanners(res.banners);
-        }
-      })
-      .catch((e) => console.log(e));
-  };
-
   useEffect(() => {
-    console.log("fetching");
-    getMovies();
+    getBanners(setBanners);
+    getMovies(setMovies);
   }, []);
 
   return (
